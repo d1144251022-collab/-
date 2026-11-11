@@ -2,7 +2,7 @@
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
-    <title>斑馬線 AI 離線辨識系統 (ONNX Runtime)</title>
+    <title>號誌 AI 離線辨識系統 (ONNX Runtime)</title>
     <!-- 引入 ONNX Runtime Web 官方套件 (CDN) -->
     <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.min.js"></script>
     <style>
@@ -16,7 +16,7 @@
 <body>
 
 <div class="container">
-    <h2>🚦 斑馬線（Crosswalk）離線 AI 辨識系統</h2>
+    <h2>🚦 號誌（Crosswalk）離線 AI 辨識系統</h2>
     <div id="status">⏳ 正在載入 ONNX 模型中，請稍候...</div>
     <input type="file" id="imageInput" accept="image/*" disabled>
     <br>
@@ -67,11 +67,11 @@
             ctx.drawImage(img, 0, 0);
             
             if (boxes.length === 0) {
-                statusDiv.innerText = "⚠️ 未偵測到斑馬線！";
+                statusDiv.innerText = "⚠️ 未偵測到號誌！";
                 drawBoxes([]); // 觸發未偵測到的文字提示
             } else {
                 drawBoxes(boxes);
-                statusDiv.innerText = `✅ 辨識完成！共找到 ${boxes.length} 個斑馬線。`;
+                statusDiv.innerText = `✅ 辨識完成！共找到 ${boxes.length} 個號誌。`;
             }
         };
     });
@@ -174,7 +174,7 @@
     if (!boxes || boxes.length === 0) {
         resultDiv.style.backgroundColor = "#f0f0f0";
         resultDiv.style.border = "1px solid #ccc";
-        resultDiv.innerHTML = "<b>系統評估結果：</b>畫面中未偵測到斑馬線。";
+        resultDiv.innerHTML = "<b>系統評估結果：</b>畫面中未偵測到號誌。";
         return;
     }
 
